@@ -2,7 +2,7 @@
 using SynetecAssessmentApi.Domain;
 using System.Reflection;
 
-namespace SynetecAssessmentApi.Persistence
+namespace SynetecAssessmentApi.Persistence.Database
 {
     public class AppDbContext : DbContext
     {

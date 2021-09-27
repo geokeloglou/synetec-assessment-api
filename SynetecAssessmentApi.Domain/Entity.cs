@@ -1,8 +1,11 @@
-﻿using System;
-
-namespace SynetecAssessmentApi.Domain
+﻿namespace SynetecAssessmentApi.Domain
 {
-    public abstract class Entity
+    public interface IBaseEntity
+    {
+        int Id { get; set; }
+    }
+
+    public abstract class Entity : IBaseEntity
     {
         public int Id { get; set; }
 

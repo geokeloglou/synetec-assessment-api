@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -5,7 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using SynetecAssessmentApi.Persistence;
+using SynetecAssessmentApi.Bl.Automapper;
+using SynetecAssessmentApi.Bl.Config;
+using SynetecAssessmentApi.Persistence.Database;
 
 namespace SynetecAssessmentApi
 {
@@ -21,10 +25,12 @@ namespace SynetecAssessmentApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.BlDependencyInjection(Configuration);
+            services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SynetecAssessmentApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "SynetecAssessmentApi", Version = "v1"});
             });
 
             services.AddDbContext<AppDbContext>(options =>
@@ -41,7 +47,7 @@ namespace SynetecAssessmentApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SynetecAssessmentApi v1"));
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

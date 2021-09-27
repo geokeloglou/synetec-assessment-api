@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.Persistence", "SynetecAssessment.Persistence\SynetecAssessmentApi.Persistence.csproj", "{72F75F99-9031-4DD6-B646-4926BC527038}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.Bl", "SynetecAssessmentApi.Bl\SynetecAssessmentApi.Bl.csproj", "{1D49C9D9-AFEB-45FD-BC72-1684C894E018}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynetecAssessmentApi.UnitTests", "SynetecAssessmentApi.UnitTests\SynetecAssessmentApi.UnitTests.csproj", "{039B7CEA-8BE0-4964-B935-A0621ECBB6E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F75F99-9031-4DD6-B646-4926BC527038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D49C9D9-AFEB-45FD-BC72-1684C894E018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D49C9D9-AFEB-45FD-BC72-1684C894E018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D49C9D9-AFEB-45FD-BC72-1684C894E018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D49C9D9-AFEB-45FD-BC72-1684C894E018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039B7CEA-8BE0-4964-B935-A0621ECBB6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039B7CEA-8BE0-4964-B935-A0621ECBB6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039B7CEA-8BE0-4964-B935-A0621ECBB6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039B7CEA-8BE0-4964-B935-A0621ECBB6E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

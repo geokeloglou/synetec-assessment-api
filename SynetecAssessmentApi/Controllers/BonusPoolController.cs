@@ -1,29 +1,51 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SynetecAssessmentApi.Dtos;
-using SynetecAssessmentApi.Services;
 using System.Threading.Tasks;
+using SynetecAssessmentApi.Bl.Services;
+using SynetecAssessmentApi.Domain.Dtos;
 
 namespace SynetecAssessmentApi.Controllers
 {
-    [Route("api/[controller]")]
-    public class BonusPoolController : Controller
+    [Route("api/[controller]/[action]")]
+    public class BonusPoolController : ControllerBase
     {
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var bonusPoolService = new BonusPoolService();
+        private readonly IBonusPoolService _bonusPoolService;
 
-            return Ok(await bonusPoolService.GetEmployeesAsync());
+        public BonusPoolController(IBonusPoolService bonusPoolService)
+        {
+            _bonusPoolService = bonusPoolService;
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> CalculateBonus([FromBody] CalculateBonusDto request)
         {
-            var bonusPoolService = new BonusPoolService();
+            if (request?.SelectedEmployeeId == null)
+            {
+                return BadRequest();
+            }
 
-            return Ok(await bonusPoolService.CalculateAsync(
-                request.TotalBonusPoolAmount,
-                request.SelectedEmployeeId));
+            var response =
+                await _bonusPoolService.CalculateAsync(request);
+
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllEmployees()
+        {
+            var response = await _bonusPoolService.GetAllEmployeesAsync();
+
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
         }
     }
 }
