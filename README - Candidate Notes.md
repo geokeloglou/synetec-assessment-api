@@ -1,4 +1,4 @@
-# Synetec coding challenge
+# Synetec Assessment API
 
 ## Notes
 - First of all, before starting refactoring we should (must) write Unit Tests to ensure that we won’t break the existing logic. (TDD)
